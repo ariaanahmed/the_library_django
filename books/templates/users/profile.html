@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="d-flex justify-content-center align-items-center flex-column" style="min-height: 90vh;">
+    <div class="border mt-3 p-3 shadow-lg rounded" style="width: 100%; max-width: 400px;">
+      <h5>Profile</h5>
+      <p>Username: {{ user.username }}</p>
+      <p>Email: {{ user.email }}</p>
+      <p>Deposit Amount: ${{ user.useraccount.deposit_amount }}</p>
+      <span class="badge text-bg-primary">Borrowing History</span>
+      <ul>
+        {% for history in borrowing_history %}
+          <li>{{ history.book.title }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}

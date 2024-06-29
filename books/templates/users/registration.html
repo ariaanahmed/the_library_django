@@ -1,0 +1,16 @@
+{% include 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <section>
+    <div class="d-flex justify-content-center align-items-center flex-column" style="min-height: 90vh;">
+      <div class="border mt-3 p-3 shadow-lg rounded" style="width: 100%; max-width: 400px;">
+        <form method="post" action="{% url 'register' %}" class="px-1 py-3" style="max-width: 100%;">
+          {% csrf_token %}
+          <!-- {{form|crispy}} -->
+          {{ form|crispy }}
+          <button type="submit" class="btn btn-primary w-100">Sign up</button>
+        </form>
+      </div>
+    </div>
+  </section>
+{% endblock %}

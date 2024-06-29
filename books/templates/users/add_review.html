@@ -1,0 +1,14 @@
+{% include 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="">Add Review</h1>
+    <div class="">
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %} {{ form|crispy }}
+        <button type="submit" class="">Add Review</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

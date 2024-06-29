@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="container">
+    <h1>Return a Book</h1>
+    <div>
+      <form action="{% url 'return' %}" method="post">
+        {% csrf_token %}
+        <div>
+          <label for="book">Select a Book to Return:</label>
+          <select name="book" id="book">
+            {% for book in borrowed_books %}
+              <option value="{{ book.id }}">{{ book.title }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Return</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
